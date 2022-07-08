@@ -1,4 +1,4 @@
-package com.tryton.template.controller;
+package com.tryton.res_delivery_service.controller;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
