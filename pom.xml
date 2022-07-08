@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.tryton</groupId>
-	<artifactId>service-template</artifactId>
+	<artifactId>res-delivery-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>service-template</name>
+	<name>res-delivery-service</name>
 
-	<description>REST service template</description>
+	<description>Delivery service</description>
 
 	<properties>
 		<java.version>11</java.version>

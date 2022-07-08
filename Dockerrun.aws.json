@@ -1,12 +1,12 @@
 {
   "AWSEBDockerrunVersion": "1",
   "Image": {
-    "Name": "mephisto2120/service-template",
+    "Name": "mephisto2120/res-delivery-service",
     "Update": "true"
   },
   "Ports": [
     {
-      "ContainerPort": 8080,
+      "ContainerPort": 9080,
       "HostPort": 8080
     }
   ]

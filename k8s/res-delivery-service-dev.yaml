@@ -1,7 +1,7 @@
 kind: ConfigMap
 apiVersion: v1
 metadata:
-  name: service-template
+  name: res-delivery-service
 data:
   application-dev.properties: |
 
@@ -14,13 +14,13 @@ data:
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: service-template
+  name: res-delivery-service
   namespace: mephisto2120
 spec:
-  serviceName: service-template
+  serviceName: res-delivery-service
   selector:
     matchLabels:
-      app: service-template
+      app: res-delivery-service
   template:
     metadata:
       annotations:
@@ -28,16 +28,16 @@ spec:
         prometheus.io/port: "8081"
         prometheus.io/scrape: "true"
       labels:
-        app: service-template
+        app: res-delivery-service
         creator: mephisto2120
         logging-type: common-json-format
     spec:
       containers:
-        - image: localhost:5000/service-template:latest
-          name: service-template
+        - image: localhost:5000/res-delivery-service:latest
+          name: res-delivery-service
           env:
             - name: APPLICATION_NAME
-              value: service-template
+              value: res-delivery-service
             - name: ACTIVE_PROFILES
               value: dev
             - name: LOGGING_CONFIG_FILE
@@ -82,7 +82,7 @@ spec:
       volumes:
         - name: config
           configMap:
-            name: service-template
+            name: res-delivery-service
             defaultMode: 420
         - name: heap-dumps
           emptyDir: {}
@@ -92,11 +92,11 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: service-template
+  name: res-delivery-service
 spec:
   type: NodePort
   selector:
-    app: service-template
+    app: res-delivery-service
   ports:
     - protocol: TCP
       port: 8080
